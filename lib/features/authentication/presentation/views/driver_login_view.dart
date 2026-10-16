@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:wasselni_driver/core/routes/app_routes.dart';
 import 'package:wasselni_driver/core/theme/app_colors.dart';
 import 'package:wasselni_driver/features/authentication/presentation/controllers/login_controller.dart';
 import 'package:wasselni_driver/features/authentication/presentation/widgets/login_form.dart';
@@ -21,11 +22,11 @@ class _DriverLoginViewState extends ConsumerState<DriverLoginView> {
 
       if (!mounted) return;
 
-      // Navigator.pushAndRemoveUntil(
-      //   context,
-      //   // MaterialPageRoute(builder: (_) => const MainNavigationView()),
-      //   // (route) => false,
-      // );
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        AppRoutes.mainNavigation,
+        (route) => false,
+      );
     } catch (error) {
       if (!mounted) return;
 

@@ -24,7 +24,7 @@ class _SplashViewState extends State<SplashView> {
 
       if (user != null) {
         // المستخدم مسجل دخول بالفعل
-        // Navigator.pushReplacementNamed(context, AppRoutes.mainNavHome);
+            Navigator.pushReplacementNamed(context, AppRoutes.mainNavigation);
       } else {
         // المستخدم غير مسجل دخول
         Navigator.pushReplacementNamed(context, AppRoutes.login);
