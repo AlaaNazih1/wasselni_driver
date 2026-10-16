@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:wasselni_driver/core/theme/app_theme.dart';
+import 'package:wasselni_driver/features/splash/presentation/view/splash_view.dart';
 
 import 'firebase_options.dart';
 
@@ -19,11 +21,8 @@ class WasselniDriverApp extends StatelessWidget {
     return MaterialApp(
       title: 'Wasselni Driver',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFFFD000)),
-      ),
-      home: const Scaffold(body: Center(child: Text('Wasselni Driver'))),
+      theme:  AppTheme.light,
+      home: const SplashView(),
     );
   }
 }
