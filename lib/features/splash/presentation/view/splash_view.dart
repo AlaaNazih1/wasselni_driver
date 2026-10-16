@@ -1,5 +1,9 @@
 
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wasselni_driver/core/routes/app_routes.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -13,8 +17,22 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
 
-   
+ Timer(const Duration(seconds: 3), () {
+      if (!mounted) return;
+
+      final user = FirebaseAuth.instance.currentUser;
+
+      if (user != null) {
+        // المستخدم مسجل دخول بالفعل
+        // Navigator.pushReplacementNamed(context, AppRoutes.mainNavHome);
+      } else {
+        // المستخدم غير مسجل دخول
+        Navigator.pushReplacementNamed(context, AppRoutes.login);
+      }
+    });
   }
+   
+  
 
   @override
   Widget build(BuildContext context) {
